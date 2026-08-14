@@ -240,7 +240,9 @@ class SignUpPage extends StatelessWidget {
         width: double.infinity,
         margin: EdgeInsets.only(top: 30),
         child: TextButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.pushNamed(context, '/home');
+          },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
@@ -272,7 +274,7 @@ class SignUpPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.pushNamed(context, '/sign-in');
+                Navigator.pop(context);
               },
               child: Text(
                 'Sign In',
@@ -289,7 +291,7 @@ class SignUpPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: backgroundColor1,
-      resizeToAvoidBottomInset: false, //agar saat mengisi field, agar tidak ada bottom overflow 
+      resizeToAvoidBottomInset: false, //agar saat mengisi field, tidak overflow 
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(

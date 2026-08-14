@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../pages/splash_page.dart';
 import '../pages/sign_in_page.dart';
 import '../pages/sign_up_page.dart';
+import '../pages/home/main_page.dart';
 // import '../theme.dart';
 
 void main() {
@@ -16,10 +17,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shamo',
+      // theme: ThemeData(
+      //   useMaterial3: false, // <-- tambahkan ini
+      // ),
       routes: {
         '/': (context) => SplashPage(),
         '/sign-in': (context) => SignInPage(),
         '/sign-up': (context) => SignUpPage(),
+        '/home': (context) => MainPage(),
       },
     );
   }
