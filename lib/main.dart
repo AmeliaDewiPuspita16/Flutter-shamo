@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan1/pages/detail_chat_page.dart';
+import '../pages/detail_chat_page.dart';
+import '../pages/edit_profile_page.dart';
 import '../pages/splash_page.dart';
 import '../pages/sign_in_page.dart';
 import '../pages/sign_up_page.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/sign-up': (context) => SignUpPage(),
         '/home': (context) => MainPage(),
         '/detail-chat' : (context) => DetailChatPage(),
+        '/edit-profile': (context) => EditProfilePage(),
       },
     );
   }
