@@ -3,21 +3,24 @@ import '../../theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChatBubble extends StatelessWidget {
+  
+  final String text;
+  final bool isSender;
+  final bool hasProduct;
+
   const ChatBubble({
     super.key,
     this.text = '',
     this.isSender = false,
+    this.hasProduct = false,
   });
-
-  final String text;
-  final bool isSender;
 
   @override
   Widget build(BuildContext context) {
 
     Widget productPreview() {
       return Container(
-        width: 234,
+        width: 247,
         margin: EdgeInsets.only(bottom: 12),
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
@@ -114,7 +117,7 @@ class ChatBubble extends StatelessWidget {
         crossAxisAlignment: 
           isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          productPreview(),
+          hasProduct ? productPreview() : SizedBox(),
           Row(
             mainAxisAlignment: 
               isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
