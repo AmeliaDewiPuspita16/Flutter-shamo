@@ -159,7 +159,9 @@ class CartPage extends StatelessWidget {
       backgroundColor: backgroundColor3,
       appBar: header(),
       body: content(),
-      bottomNavigationBar: customBottomNav(),
+      bottomNavigationBar: SafeArea(
+        child: customBottomNav(),
+      ),
     );
   }
 }
