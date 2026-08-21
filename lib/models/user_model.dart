@@ -23,7 +23,7 @@ class UserModel {
       email = json['email'],
       username = json['username'],
       profilePhotoUrl = json['profile_photo_url'],
-      token = json['token'];
+      token = json['token'] ?? '';
 
   // /CONTRUCTOR UNTUK EMNGUBAH USERMODEL INI KE BENTUK JSON
   Map<String, dynamic> toJson() {

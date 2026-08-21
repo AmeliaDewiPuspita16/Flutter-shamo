@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../models/product_model.dart';
 import '../../theme.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard(this.product, {super.key});
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,19 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height:30),
-            Image.asset(
-              'assets/image_shoes.png',
-              width: 215,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
+            product.galleries.isNotEmpty
+                ? Image.network(
+                    product.galleries[0].url,
+                    width: 215,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset(
+                    'assets/image_shoes.png',
+                    width: 215,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
             Container(
               margin: EdgeInsets.symmetric(
                 horizontal: 20,

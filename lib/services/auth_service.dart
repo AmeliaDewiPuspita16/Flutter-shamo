@@ -31,6 +31,44 @@ class AuthService{
       body: body,
     );
 
+    // print('STATUS CODE: ${response.statusCode}');
+    // print(response.body);
+
+    // mencoba apakah respon nya 200
+    if(response.statusCode == 200){
+      var data = jsonDecode(response.body)['data'];
+      UserModel user = UserModel.fromJson(data['user']);
+      user.token = 'Bearer  ${data['access_token']}';
+
+      return user;
+    } else {
+      throw Exception('Gagal Get Products!');
+    }
+  }
+
+
+
+  Future<UserModel> login({
+    required String email,
+    required String password,
+  }) async {
+
+    // var url = '$baseUrl/register';
+    var url = Uri.parse('$baseUrl/login');
+    var headers = {'content-Type': 'application/json'};
+    var body = jsonEncode({
+      'email': email,
+      'password': password,
+    });
+
+    // nah disini yg akan digunakan untuk melakukan request ke dalam BE kita, menggunakan http
+    var response = await http.post(
+      url,
+      headers: headers,
+      body: body,
+    );
+
+    print('STATUS CODE: ${response.statusCode}');
     print(response.body);
 
     // mencoba apakah respon nya 200
@@ -41,7 +79,7 @@ class AuthService{
 
       return user;
     } else {
-      throw Exception('Gagal Register');
+      throw Exception('Gagal Login');
     }
   }
 }
